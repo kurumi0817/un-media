@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="../../CSS/reset.css">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <meta charset="UTF-8"> <!-- 文字コード設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- レスポンシブ設定 -->
+    <title>ドキュメント</title> <!-- ページタイトル -->
+</head>
+<body>
+
+    <div class="site-wrapper">
+        <!-----------------共通header↓---------------->
+        <header>
+            <!--SNS↓-->
+            <div class="sns">
+                <a href="#"><img src="../../imges/header-footer/insta-logo.png"></a>
+                <a href="#"><img src="../../imges/header-footer/X-logo.png"></a>
+            </div>
+            <div class="logo">
+                <img src="../../imges/header-footer/UN.logo.png">
+            </div>
+            <!--SNS↑-->
+
+            <!--ハンバーガーメニュー↓-->
+            <div id="navArea">
+                <nav>
+                    <div class="inner">
+                        <ul>
+                            <li><a href="#">美容医療</a></li>
+                            <li><a href="#">男性美容</a></li>
+                            <li><a href="#">クリニック一覧</a></li>
+                            <li><a href="#">条件別おすすめ</a></li>
+                            <li><a href="#">美容施術適正診断</a></li>
+                            <li><a href="#">記事一覧</a></li>
+                            <li><a href="#">症例</a></li>
+                            <li><a href="#">UN.について</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">お問い合わせ</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="toggle_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="mask"></div>
+            </div>
+            <!--ハンバーガーメニュー↑-->
+        </header>
+        
+        <!--グローバルナビ↓-->
+        <div class="global-nav">
+            <ul>
+                <li><a href="#">美容医療</a></li>
+                <li><a href="#">男性美容</a></li>
+                <li><a href="#">診断</a></li>
+                <li><a href="#">クリニック一覧</a></li>
+                <li><a href="#">症例</a></li>
+            </ul>
+        </div>
+        <!--グローバルナビ↑-->
+
+        <!--ページタイトルラベル↓-->
+        <div class="page-label">
+            <h1><a href="#">クリニック一覧</a></h1>
+        </div>
+        <!--ページタイトルラベル↑-->
+
+        <!-----------------共通header↑---------------->
+        
+        <!--メイン↓-->
+        <main>
+            <article>
+                <div class="area-tabs">
+                    <div class="area-tab-buttons">
+                        <button class="area-tab-button active" data-area="area-tokyo">東京</button>
+                        <button class="area-tab-button" data-area="area-osaka">大阪</button>
+                        <button class="area-tab-button" data-area="area-nagoya">名古屋</button>
+                        <button class="area-tab-button" data-area="area-fukuoka">福岡</button>
+                        <button class="area-tab-button" data-area="area-hokkaido">北海道</button>
+                    </div>
+
+                    <div class="area-tab-contents">
+
+                        <!-- 東京 -->
+                        <div class="area-tab-content active" id="area-tokyo">
+                        <a href="#shinjuku">新宿</a>
+                        <a href="#shibuya">渋谷</a>
+                        </div>
+
+                        <!-- 大阪 -->
+                        <div class="area-tab-content" id="area-osaka">
+                        <a href="#umeda">梅田</a>
+                        <a href="#shinsaibashi">心斎橋</a>
+                        </div>
+
+                        <!-- 名古屋 -->
+                        <div class="area-tab-content" id="area-nagoya">
+                        <a href="#nagoya">名古屋</a>
+                        </div>
+
+                        <!-- 福岡 -->
+                        <div class="area-tab-content" id="area-fukuoka">
+                        <a href="#fukuoka">福岡</a>
+                        </div>
+
+                        <!-- 北海道 -->
+                        <div class="area-tab-content" id="area-hokkaido">
+                        <a href="#sapporo">札幌</a>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <section id="shinjuku">
+                <h2>東京</h2>
+                <h3>新宿</h3>
+                <div class="clinic-card-list-wrap">
+                    <div class="clinic-card-list">
+
+                    <!-- 1件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 2件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 3件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 4件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 5件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <button type="button" class="clinic-more-btn">もっと見る</button>
+                </div>
+
+                <h3>渋谷</h3>
+                <div class="clinic-card-list-wrap">
+                    <div class="clinic-card-list">
+
+                    <!-- 1件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 2件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 3件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 4件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- 5件目 -->
+                    <div class="clinic-card">
+                        <div class="clinic-card-inner">
+                        <div class="clinic-card-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+
+                        <div class="clinic-card-body">
+                            <div class="card-tags">
+                            <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                            <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                            <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
+                            </div>
+
+                            <h3 class="clinic-card-title">ビューティスクリニック</h3>
+
+                            <div class="clinic-card-point">
+                            <p class="clinic-card-point-label">おすすめポイント</p>
+                            <p class="clinic-card-point-text">駅から徒歩1分でアクセスしやすい</p>
+                            </div>
+
+                            <a href="#" class="clinic-card-btn">クリニックのHPを見る</a>
+                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <button type="button" class="clinic-more-btn">もっと見る</button>
+                </div>
+                </section>
+            </article>
+        </main>
+        <!--メイン↑-->
+
+    <!-----------------共通footer↓---------------->
+    <footer>
+        <div>
+            <img src="../../imges/header-footer/UN.logo.png">
+        </div>
+        <ul class="footer-sns">
+            <li>
+                <a href="#">UN.について</a>
+            </li>
+            <li>
+                <a href="#">プライバシーポリシー</a>
+            </li>
+            <li>
+                <a href="#">FAQ</a>
+            </li>
+            <li>
+                <a href="#">お問い合わせ</a>
+            </li>
+            <li>
+                <a href="#">広告記載ポリシー</a>
+            </li>
+        </ul>
+        <!--SNS↓-->
+        <div>
+            <ul>
+                <li><a href="#"><img src="../../imges/header-footer/TikTok_logo.png"></a></li>
+                <li><a href="#"><img src="../../imges/header-footer/insta-logo.png"></a></li>
+                <li><a href="#"><img src="../../imges/header-footer/X-logo.png"></a></li>
+            </ul>
+        </div>
+        <!--SNS↑-->
+        <p> &copy;2026 UN. / 株式会社TY</p>
+    </footer>
+    <!-----------------共通footer↑---------------->
+
+    </div>
+    
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../../JS/index.js"></script>
+
+</body>
+</html>

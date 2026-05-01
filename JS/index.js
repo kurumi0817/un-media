@@ -81,3 +81,50 @@ $(function () {
         });
     });
 });
+
+//エリア検索タブ
+$(function () {
+        $('.area-tab-button').on('click', function () {
+            const areaId = $(this).data('area');
+
+            $('.area-tab-button').removeClass('active');
+            $(this).addClass('active');
+
+            $('.area-tab-content').removeClass('active');
+            $('#' + areaId).addClass('active');
+        });
+    });
+
+    // クリニックもっと見る
+    const showCount = 2;
+
+    $('.clinic-card-list-wrap').each(function () {
+        const $wrap = $(this);
+        const $cards = $wrap.find('.clinic-card');
+        const $button = $wrap.find('.clinic-more-btn');
+
+        // 初期表示：2件だけ
+        $cards.removeClass('is-show');
+        $cards.slice(0, showCount).addClass('is-show');
+
+        // 2件以下ならボタン非表示
+        if ($cards.length <= showCount) {
+        $button.hide();
+        }
+
+        $button.on('click', function () {
+        const isOpen = $wrap.hasClass('is-open');
+
+        if (isOpen) {
+            $cards.removeClass('is-show');
+            $cards.slice(0, showCount).addClass('is-show');
+            $wrap.removeClass('is-open');
+            $button.text('もっと見る');
+        } else {
+            $cards.addClass('is-show');
+            $wrap.addClass('is-open');
+            $button.text('閉じる');
+        }
+        });
+    });
+

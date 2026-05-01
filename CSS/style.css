@@ -23,10 +23,14 @@ section{
 }
 /*body↑*/
 
-/*font、タイトル共通*/
+/*font、タイトル共通（コラム投稿の時は外す）*/
 h2{
     font-size: 20px;
     padding-bottom: 15px;
+    padding-top: 10px;
+}
+h3{
+    padding-bottom: 10px;
     padding-top: 10px;
 }
 
@@ -761,3 +765,84 @@ main{
 /* NEWS↑*/
 
 /* =========================TOPページ↑========================= */
+
+
+/* =========================クリニック一覧ページ↓========================= */
+/* エリアタブ↓*/
+.area-tabs {
+    border: 1px solid #1F294E;
+    margin-top: 20px;
+    border-top: none;
+}
+.area-tab-buttons {
+    display: flex;
+}
+.area-tab-button {
+    flex: 1;
+    padding: 10px 4px;
+    border: none;
+    border-right: 2px solid #fff;
+    background: #d9d9d9;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+.area-tab-button:last-child {
+    border-right: none;
+}
+.area-tab-button.active {
+    background: #1F294E;
+}
+.area-tab-contents {
+    padding: 18px 20px;
+    min-height: 70px;
+}
+.area-tab-content {
+    display: none;
+    gap: 16px;
+}
+.area-tab-content.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+.area-tab-content a {
+    color: #5883F0;
+    font-size: 16px;
+    text-decoration: none;
+}
+/* エリアタブ↑*/
+
+/* エリア一覧タブ↓*/
+.clinic-card-list-wrap {
+    border: 1px solid #1F294E;
+}
+.clinic-card-list .clinic-card {
+    display: none;
+    margin-bottom: 24px;
+}
+.clinic-card-list .clinic-card.is-show {
+    display: block;
+}
+.clinic-card-list .clinic-card:last-child {
+    margin-bottom: 0;
+}
+.clinic-more-btn {
+    width: 100%;
+    height: 48px;
+    display: block;
+    background: #1F294E;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+}
+section .clinic-card-list{
+    border: 1px #1F294E solid;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+/* エリアタブ↓*/
+/* =========================クリニック一覧ページ↑========================= */
