@@ -1,15 +1,743 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <meta charset="UTF-8"> <!-- 文字コード設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- レスポンシブ設定 -->
     <title>ドキュメント</title> <!-- ページタイトル -->
 </head>
 <body>
-    <header>
+
+    <div class="site-wrapper">
+        <!-----------------共通header↓---------------->
+        <header>
+            <!--SNS↓-->
+            <div class="sns">
+                <a href="#"><img src="imges/header-footer/insta-logo.png"></a>
+                <a href="#"><img src="imges/header-footer/X-logo.png"></a>
+            </div>
+            <div class="logo">
+                <img src="imges/header-footer/UN.logo.png">
+            </div>
+            <!--SNS↑-->
+
+            <!--ハンバーガーメニュー↓-->
+            <div id="navArea">
+                <nav>
+                    <div class="inner">
+                        <ul>
+                            <li><a href="#">美容医療</a></li>
+                            <li><a href="#">男性美容</a></li>
+                            <li><a href="#">クリニック一覧</a></li>
+                            <li><a href="#">条件別おすすめ</a></li>
+                            <li><a href="#">美容施術適正診断</a></li>
+                            <li><a href="#">記事一覧</a></li>
+                            <li><a href="#">症例</a></li>
+                            <li><a href="#">UN.について</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">お問い合わせ</a></li>
+                            <li><a href="#">プライバシーポリシー</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="toggle_btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="mask"></div>
+            </div>
+            <!--ハンバーガーメニュー↑-->
+        </header>
         
-    </header>
+        <!--グローバルナビ↓-->
+        <div class="global-nav">
+            <ul>
+                <li><a href="#">美容医療</a></li>
+                <li><a href="#">男性美容</a></li>
+                <li><a href="#">診断</a></li>
+                <li><a href="#">クリニック一覧</a></li>
+                <li><a href="#">症例</a></li>
+            </ul>
+        </div>
+        <!--グローバルナビ↑-->
+
+        <!--ページタイトルラベル↓-->
+        <div class="page-label">
+            <h1><a href="#">HOME</a></h1>
+        </div>
+        <!--ページタイトルラベル↑-->
+
+        <!--エリア検索↓-->
+        <ul class="accordion-menu">
+            <li class="has-sub">
+                <div>
+                    <a href="javascript:void(0);">人気エリアから探す<span class="arrow_u"></span></a>
+                </div>
+
+                <ul class="sub">
+                    <li>
+                        <a href="#">東京</a>
+                    </li>
+                    <li>
+                        <a href="#">大阪</a>
+                    </li>
+                    <li>
+                        <a href="#">名古屋</a>
+                    </li>
+                    <li>
+                        <a href="#">福岡</a>
+                    </li>
+                    <li>
+                        <a href="#">北海道</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!--エリア検索↑-->
+        <!-----------------共通header↑---------------->
+        
+        <!--メイン↓-->
+        <main>
+            <section class="main-slider">
+                <div class="main-slider-track">
+
+                    <div class="main-slide active">
+                        <img src="imges/dummy/dummy.png" alt="メインバナー1">
+                    </div>
+
+                    <div class="main-slide">
+                        <img src="imges/dummy/dummy.png" alt="メインバナー2">
+                    </div>
+
+                    <div class="main-slide">
+                        <img src="imges/dummy/dummy.png" alt="メインバナー3">
+                    </div>
+
+                </div>
+
+                <button class="slider-btn slider-btn-prev" type="button">‹</button>
+                <button class="slider-btn slider-btn-next" type="button">›</button>
+            </section>
+
+            <article>
+
+                <section>
+                    <h2>お悩みから記事を探す</h2>
+                    <div>
+                        <!--中身-->
+                    </div>
+                </section>
+
+                <!--topics↓-->
+                <section>
+                    <h2>TOPICS</h2>
+                    <div>
+                        <div class="column-list">
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                        </div>
+                        <!--コラム横カード↓
+                        <div class="column-card column-card-horizontal">
+                            <a href="#" class="column-card-link">
+                                <div class="column-card-img">
+                                    <img src="imges/dummy/dummy.png">
+                                </div>
+                                <div class="column-card-body">
+                                <div class="column-card-meta">
+                                    <time class="column-card-date">202X.XX.XX</time>
+                                    <div class="card-tags">
+                                        <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                    </div>
+                                </div>
+                                    <h3 class="column-card-title">
+                                        男性におすすめの医療脱毛とは？<br>ヒゲ脱毛をわかりやすく解説（仮）
+                                    </h3>
+                                </div>
+                            </a>
+                        </div>
+                        コラム横カード↓-->
+                    </div>
+
+                </section>
+                <!--topics↑-->
+
+                <!--人気の施術↓-->
+                <section>
+                    <h2>人気の施術</h2>
+                    <div class="treatment-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-button active" data-tab="tab01">ピコレーザー</button>
+                            <button class="tab-button" data-tab="tab02">おすすめクリニック</button>
+                            <button class="tab-button" data-tab="tab03">強み＆気になる所</button>
+                        </div>
+
+                        <div class="tab-contents">
+                            <div class="tab-content tab01 active" id="tab01">
+                                <h3>ピコレーザー</h3>
+                                <div class="tab-img">
+                                    <img src="imges/dummy/dummy.png">
+                                </div>
+                                <p>ダウンタイムが少ない / 効果実感が比較的早い / 比較的短時間（10〜20分程度）</p>
+
+                            </div>
+
+                            <div class="tab-content tab02" id="tab02">
+                                <!--クリニックカード横↓-->
+                                <div class="clinic-card">
+                                    <div class="clinic-card-inner">
+                                        <div class="clinic-card-img">
+                                            <img src="imges/dummy/dummy.png">
+                                        </div>
+                                        <div class="clinic-card-body">
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                                <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                                <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                            </div>
+                                            <h3 class="clinic-card-title">
+                                                ビューティスクリニック
+                                            </h3>
+                                            <div class="clinic-card-point">
+                                                <p class="clinic-card-point-label">おすすめポイント</p>
+                                                <p class="clinic-card-point-text">
+                                                西梅田駅から徒歩1分でアクセスしやすい
+                                                </p>
+                                            </div>
+                                            <a href="#" class="clinic-card-btn">
+                                                クリニックのHPを見る
+                                            </a>
+
+                                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--クリニックカード横↑-->
+
+                                <!--クリニックカード横↓-->
+                                <div class="clinic-card clinic-card-tab">
+                                    <div class="clinic-card-inner">
+                                        <div class="clinic-card-img">
+                                            <img src="imges/dummy/dummy.png">
+                                        </div>
+                                        <div class="clinic-card-body">
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                                <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                                <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                            </div>
+                                            <h3 class="clinic-card-title">
+                                                ビューティスクリニック
+                                            </h3>
+                                            <div class="clinic-card-point">
+                                                <p class="clinic-card-point-label">おすすめポイント</p>
+                                                <p class="clinic-card-point-text">
+                                                西梅田駅から徒歩1分でアクセスしやすい
+                                                </p>
+                                            </div>
+                                            <a href="#" class="clinic-card-btn">
+                                                クリニックのHPを見る
+                                            </a>
+
+                                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--クリニックカード横↑-->
+                            </div>
+
+                            <div class="tab-content tab03" id="tab03">
+                                <h4>強み</h4>
+                                <p>シミ・くすみ・そばかすなど、複数の肌悩みに対応しやすい施術です。</p>
+                                <br>
+                                <h4>気になるポイント</h4>
+                                <p>1回で完全に消えるとは限らず、複数回の施術が必要なケースがあります。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--人気の施術↑-->
+
+                <!--男性に人気の施術↓-->
+                <section>
+                    <h2>男性に人気の施術</h2>
+                    <div class="treatment-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-button active" data-tab="tab01">ピコレーザー</button>
+                            <button class="tab-button" data-tab="tab02">おすすめクリニック</button>
+                            <button class="tab-button" data-tab="tab03">強み＆気になる所</button>
+                        </div>
+
+                        <div class="tab-contents">
+                            <div class="tab-content active tab01" id="tab01">
+                                <h3>ピコレーザー</h3>
+                                <div class="tab-img">
+                                    <img src="imges/dummy/dummy.png">
+                                </div>
+                                <p>ダウンタイムが少ない / 効果実感が比較的早い / 比較的短時間（10〜20分程度）</p>
+
+                            </div>
+
+                            <div class="tab-content" id="tab02">
+                                <!--クリニックカード横↓-->
+                                <div class="clinic-card">
+                                    <div class="clinic-card-inner">
+                                        <div class="clinic-card-img">
+                                            <img src="imges/dummy/dummy.png">
+                                        </div>
+                                        <div class="clinic-card-body">
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                                <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                                <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                            </div>
+                                            <h3 class="clinic-card-title">
+                                                ビューティスクリニック
+                                            </h3>
+                                            <div class="clinic-card-point">
+                                                <p class="clinic-card-point-label">おすすめポイント</p>
+                                                <p class="clinic-card-point-text">
+                                                西梅田駅から徒歩1分でアクセスしやすい
+                                                </p>
+                                            </div>
+                                            <a href="#" class="clinic-card-btn">
+                                                クリニックのHPを見る
+                                            </a>
+
+                                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--クリニックカード横↑-->
+
+                                <!--クリニックカード横↓-->
+                                <div class="clinic-card">
+                                    <div class="clinic-card-inner">
+                                        <div class="clinic-card-img">
+                                            <img src="imges/dummy/dummy.png">
+                                        </div>
+                                        <div class="clinic-card-body">
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                                <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                                <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                            </div>
+                                            <h3 class="clinic-card-title">
+                                                ビューティスクリニック
+                                            </h3>
+                                            <div class="clinic-card-point">
+                                                <p class="clinic-card-point-label">おすすめポイント</p>
+                                                <p class="clinic-card-point-text">
+                                                西梅田駅から徒歩1分でアクセスしやすい
+                                                </p>
+                                            </div>
+                                            <a href="#" class="clinic-card-btn">
+                                                クリニックのHPを見る
+                                            </a>
+
+                                            <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--クリニックカード横↑-->
+                            </div>
+
+                            <div class="tab-content" id="tab03">
+                                <h4>強み</h4>
+                                <p>シミ・くすみ・そばかすなど、複数の肌悩みに対応しやすい施術です。</p>
+                                <br>
+                                <h4>気になるポイント</h4>
+                                <p>1回で完全に消えるとは限らず、複数回の施術が必要なケースがあります。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--男性に人気の施術↑-->
+
+                <!--人気の記事↓-->
+                <section>
+                    <h2>人気の記事</h2>
+                    <div class="column-list">
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                            <!--コラム縦カード↓-->
+                            <div class="column-card column-card-vertical">
+                                <a href="#" class="column-card-link">
+                                    <div class="column-card-img">
+                                        <img src="imges/dummy/dummy.png">
+                                    </div>
+                                        <div class="column-card-body">
+                                            <div class="column-card-meta">
+                                                <time class="column-card-date">202X.XX.X</time>
+                                            <div class="card-tags">
+                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="column-card-title">
+                                            男性におすすめの医療脱毛とは？ヒゲ脱毛をわかりやすく解説（仮）
+                                        </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--コラム縦カード↑-->
+                        </div>
+                        <!--人気の記事↑-->
+                </section>
+                <!--人気の記事↑-->
+
+                <!--施術比較表↓-->
+                <section class="treatment-compare">
+                    <h2>施術比較</h2>
+                <p class="treatment-compare-lead">
+                    施術名をクリックすると対応しているクリニックをご覧になれます。
+                </p>
+
+                <div class="treatment-compare-scroll">
+                    <table class="treatment-compare-table">
+                        <thead>
+                            <tr>
+                            <th>施術名</th>
+                            <th><a href="#">ピコレーザー</a></th>
+                            <th><a href="#">ダーマペン</a></th>
+                            <th><a href="#">ハイフ</a></th>
+                            <th><a href="#">ポテンツァ</a></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                            <th>悩み</th>
+                            <td>シミ</td>
+                            <td>毛穴</td>
+                            <td>たるみ</td>
+                            <td>毛穴/ニキビ</td>
+                            </tr>
+
+                            <tr>
+                            <th>料金</th>
+                            <td>2万円〜</td>
+                            <td>1万円〜</td>
+                            <td>3万円〜</td>
+                            <td>3万円〜</td>
+                            </tr>
+
+                            <tr>
+                            <th>ダウンタイム</th>
+                            <td>少</td>
+                            <td>あり</td>
+                            <td>ほぼなし</td>
+                            <td>あり</td>
+                            </tr>
+
+                            <tr>
+                            <th>痛み</th>
+                            <td>少〜中</td>
+                            <td>中</td>
+                            <td>少</td>
+                            <td>中〜強</td>
+                            </tr>
+
+                            <tr>
+                            <th>施術時間</th>
+                            <td>10分〜20分</td>
+                            <td>30分前後</td>
+                            <td>30〜60分</td>
+                            <td>30〜60分</td>
+                            </tr>
+
+                            <tr>
+                            <th>効果実感</th>
+                            <td>比較的早い</td>
+                            <td>徐々に</td>
+                            <td>徐々に</td>
+                            <td>徐々に</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </section>
+                <!--施術比較表↑-->
+
+                <!--NEWS↓-->
+                <section>
+                    <h2>NEWS</h2>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <div class="news-date">202X.XX.XX</div>
+                            <div class="news-content">サイトの更新を行いました。</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">202X.XX.XX</div>
+                            <div class="news-content">〇〇を追加しました。</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">202X.XX.XX</div>
+                            <div class="news-content">タイトル</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">202X.XX.XX</div>
+                            <div class="news-content">タイトル</div>
+                        </div>
+                    </div>
+                </section>
+                <!--NEWS↑-->
+
+                <section>
+                    <h2>タグ</h2>
+                        <div>
+                            <div class="card-tags">
+
+                                <!-- フラグ（クリニック） -->
+                                <a href="#" class="tag tag-flag tag-beginner">#初心者向け</a>
+                                <a href="#" class="tag tag-flag tag-mens">#男性おすすめ</a>
+                                <a href="#" class="tag tag-flag tag-free-counseling">#カウンセリング無料</a>
+                                <a href="#" class="tag tag-flag tag-reasonable">#通いやすい価格帯</a>
+                                <a href="#" class="tag tag-flag tag-same-day">#即日施術OK</a>
+
+                                <!-- タクソノミー：悩み -->
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-acne">#ニキビ</a>
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-pores">#毛穴</a>
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-datumou">#脱毛</a>
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-tarumi">#たるみ</a>
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-simi">#シミ</a>
+                                <a href="#" class="tag tag-taxonomy tag-trouble tag-memoto">#目元</a>
+
+                                <!-- タクソノミー：施術 -->
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-hifu">#ハイフ</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-ipl">#IPL（光治療）</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-pico">#ピコレーザー</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-potentsa">#ポテンツァ</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-da-mapen">#ダーマペン</a>
+                                <a href="#" class="tag tag-taxonomy tag-treatment tag-da-futae">#二重</a>
+
+                                <!-- タクソノミー：エリア -->
+                                <a href="#" class="tag tag-taxonomy tag-area tag-tokyo">東京</a>
+                                <a href="#" class="tag tag-taxonomy tag-area tag-oosaka">大阪</a>
+                                <a href="#" class="tag tag-taxonomy tag-area tag-nagoya">名古屋</a>
+                                <a href="#" class="tag tag-taxonomy tag-area tag-fukuoka">福岡</a>
+                                <a href="#" class="tag tag-taxonomy tag-area tag-hokkaidou">北海道</a>
+
+                            </div>
+                        </div>
+                </section>
+
+                <!--クリニックカードまとめ-->
+                <section>
+                        <!--クリニックカード横↓
+                        <div class="clinic-card">
+                            <div class="clinic-card-inner">
+                                <div class="clinic-card-img">
+                                    <img src="imges/dummy/dummy.png">
+                                </div>
+                                <div class="clinic-card-body">
+                                    <div class="card-tags">
+                                        <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                        <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                        <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                    </div>
+                                    <h3 class="clinic-card-title">
+                                        ビューティスクリニック
+                                    </h3>
+                                    <div class="clinic-card-point">
+                                        <p class="clinic-card-point-label">おすすめポイント</p>
+                                        <p class="clinic-card-point-text">
+                                        西梅田駅から徒歩1分でアクセスしやすい
+                                        </p>
+                                    </div>
+                                    <a href="#" class="clinic-card-btn">
+                                        クリニックのHPを見る
+                                    </a>
+
+                                    <p class="clinic-card-note">※詳しくはHPをご確認ください</p>
+                                </div>
+                            </div>
+                        </div>
+                        クリニックカード横↑-->
+
+                        <!--クリニックカード縦↓
+                        <div class="clinic-card clinic-card-vertical">
+                            <div class="clinic-card-img">
+                                <img src="imges/dummy/dummy.png" alt="">
+                            </div>
+
+                            <div class="clinic-card-body">
+                                <div class="card-tags">
+                                    <span class="tag tag-flag tag-beginner">#初心者向け</span>
+                                    <span class="tag tag-flag tag-mens">#男性おすすめ</span>
+                                    <span class="tag tag-taxonomy tag-area tag-oosaka">大阪</span>
+                                </div>
+
+                                <h3 class="clinic-card-title">
+                                ビューティスクリニック
+                                </h3>
+
+                                <div class="clinic-card-point">
+                                <p class="clinic-card-point-label">おすすめポイント</p>
+                                <p class="clinic-card-point-text">
+                                    西梅田駅から徒歩1分でアクセスしやすい
+                                </p>
+                                </div>
+
+                                <a href="#" class="clinic-card-btn">
+                                クリニックのHPを見る
+                                </a>
+
+                                <p class="clinic-card-note">
+                                ※詳しくはHPをご確認ください
+                                </p>
+                            </div>
+                        </div>
+                        クリニックカード縦↑-->
+                </section>
+
+            </article>
+        </main>
+        <!--メイン↑-->
+
+    <!-----------------共通footer↓---------------->
+    <footer>
+        <div>
+            <img src="imges/header-footer/UN.logo.png">
+        </div>
+        <ul class="footer-sns">
+            <li>
+                <a href="#">UN.について</a>
+            </li>
+            <li>
+                <a href="#">プライバシーポリシー</a>
+            </li>
+            <li>
+                <a href="#">FAQ</a>
+            </li>
+            <li>
+                <a href="#">お問い合わせ</a>
+            </li>
+            <li>
+                <a href="#">広告記載ポリシー</a>
+            </li>
+        </ul>
+        <!--SNS↓-->
+        <div>
+            <ul>
+                <li><a href="#"><img src="imges/header-footer/TikTok_logo.png"></a></li>
+                <li><a href="#"><img src="imges/header-footer/insta-logo.png"></a></li>
+                <li><a href="#"><img src="imges/header-footer/X-logo.png"></a></li>
+            </ul>
+        </div>
+        <!--SNS↑-->
+        <p> &copy;2026 UN. / 株式会社TY</p>
+    </footer>
+    <!-----------------共通footer↑---------------->
+
+    </div>
+    
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="JS/index.js"></script>
+
 </body>
 </html>

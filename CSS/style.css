@@ -1,0 +1,763 @@
+/*/////////////////////////*共通↓*//*////////////////////
+/*body↓*/
+body {
+    margin: 0;
+    background: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+section{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.page-label{
+    margin-top: 5px;
+    background: linear-gradient(to left, #FCEDF4,#1F294E );
+    padding: 15px 15px 15px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.page-label h1{
+    color: #ffffff;
+    font-size: 20px;
+}
+/*body↑*/
+
+/*font、タイトル共通*/
+h2{
+    font-size: 20px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+/* =========================header↓========================= */
+.site-wrapper {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+header {
+    position: relative;
+    height: 80px;
+    align-items: center;
+}
+/*トップロゴ↓*/
+header .logo img{
+    text-align: center;
+    height: 50px;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+}
+
+.logo img {
+    height: 55px;
+}
+
+/*トップロゴ↑*/
+
+/*SNSロゴ↓*/
+.sns {
+    padding-top: 25px;
+    display: flex;
+    gap: 13px;
+}
+.sns img {
+    width: 30px;
+    height: auto;
+}
+/*SNSロゴ↑*/
+
+/*ハンバーガーメニュー↓*/
+#navArea nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -220px;
+    width: 220px;
+    background: #1F294E;
+    transition: all .5s;
+    z-index: 100;
+    opacity: 0;
+}
+#navArea.open nav {
+    left: 0;
+    opacity: 1;
+}
+#navArea nav .inner {
+    padding: 20px;
+}
+#navArea nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#navArea nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #ffffff;
+}
+#navArea nav .inner ul li a {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 1em;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+.toggle_btn {
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 20px;
+    width:25px;
+    height: 30px;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 110;
+    color: #1F294E;
+}
+.toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #1F294E;
+    border-radius: 4px;
+    transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+    top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+    top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+    bottom: 4px;
+}
+.open .toggle_btn span {
+    background-color: #fff;
+}
+.open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+}
+#mask {
+    display: none;
+}
+#navArea.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #969696;
+    opacity: .9;
+    z-index: 90;
+}
+/*ハンバーガーメニュー↑*/
+
+/*グローバルメニュー↓*/
+.global-nav{
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+.global-nav ul{
+    color: #1F294E;
+    justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+/*グローバルメニュー↑*/
+
+/* =========================header↑========================= */
+
+/*アコーディオンメニュー(エリア検索)↓*/
+.accordion-menu {
+    width: 145px;
+    padding-top: 10px;
+    position: relative;
+    z-index: 5;
+}
+.accordion-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.accordion-menu > li {
+    position: relative;
+} 
+.has-sub > div{
+    padding-bottom:10px;
+    border-bottom: 1px #1F294E solid;
+}
+.accordion-menu a {
+    display: block;
+    line-height: 1;
+    z-index: 1;
+    color: #1F294E;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.arrow_u {
+    position: relative;
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    transition: transform 0.18s ease-out;
+}
+.arrow_u:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-bottom: solid 1.5px #1F294E;
+    border-right: solid 1.5px #1F294E;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.sub {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-height: 0;
+    height: 0;
+    z-index: 1;
+    transition: min-height 0.5s;
+}
+.sub > li > a {
+    color: #ffffff;
+    padding: 9px;
+    background-color: #1F294E;
+    border-bottom: 1px #ffffff solid;
+}
+.sub.active {
+    min-height: 170px;
+}
+/*アコーディオンメニュー↑*/
+
+/* =========================footer↓========================= */
+footer {
+    border-top: 1px #1F294E solid;
+    text-align: center;
+    padding: 40px 20px 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/* ロゴ */
+footer img {
+    width: 55px;
+    margin-bottom: 20px;
+}
+
+/* メニュー */
+footer > ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+footer > ul li {
+    list-style: none;
+    position: relative;
+}
+
+/* スラッシュ区切り */
+footer > ul li:not(:last-child)::after {
+    content: "/";
+    color: #1F294E;
+}
+
+footer > ul a {
+    color: #1F294E;
+}
+
+/* SNS */
+footer div ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 40px;
+}
+
+footer div ul a img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* コピーライト */
+footer p {
+    font-size: 12px;
+    color: #333;
+}
+/* =========================footer↑========================= */
+
+/*/////////////////////////*共通↑*//*////////////////////
+
+/* =========================コラムカード共通↓========================= */
+.column-card {
+    flex: 1 1 calc((100% - 10px) / 3);
+    min-width: 0;
+}
+.column-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.column-card-link {
+    display: block;
+    text-decoration: none;
+    color: #1F294E;
+}
+.column-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+}
+.column-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.column-card-date {
+    font-size: 14px;
+    color: #999;
+}
+.column-card-title {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+/*コラム縦カード↓*/
+.column-card-vertical {
+    max-width: 150px;
+}
+/*コラム縦カード↑*/
+
+/*コラム横カード↓*/
+.column-card-horizontal .column-card-link {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 6px;
+    align-items: start;
+    padding-top: 5px;
+}
+
+.column-card-vertical .column-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.column-card-horizontal .column-card-body {
+    padding-top: 5px;
+}
+/*コラム横カード↑*/
+/* =========================コラムカード共通↑======================== */
+
+/* =========================クリニックカード↓========================= */
+.clinic-card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.clinic-card-inner {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.clinic-card-img {
+    width: 140px;
+    height: 140px;
+    flex: 0 0 140px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.clinic-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.clinic-card-body {
+    flex: 1;
+    min-width: 0;
+}
+.clinic-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 6px 0;
+    position: relative;
+    padding-left: 8px;
+}
+.clinic-card-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 4px;
+    height: 16px;
+    background: #1F294E;
+}
+.clinic-card-point {
+    border: 1px solid #1F294E;
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 6px;
+}
+.clinic-card-point-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+.clinic-card-point-text {
+    font-size: 11px;
+    margin-top: 2px;
+}
+.clinic-card-btn {
+    display: block;
+    text-align: center;
+    background: #3AB75B;
+    color: #fff;
+    padding: 10px;
+    border-radius: 999px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 13px;
+}
+.clinic-card-note {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* 縦クリニックカード↓*/
+.clinic-card-vertical {
+    width: 100%;
+}
+
+.clinic-card-vertical .clinic-card-inner {
+    display: block;
+}
+.clinic-card.clinic-card-vertical .clinic-card-img {
+    width: 100% !important;
+    height: 0 !important;
+    padding-top: 100% !important;
+    position: relative !important;
+    overflow: hidden;
+    background: #eee;
+    flex: none !important;
+    aspect-ratio: auto !important;
+}
+
+.clinic-card.clinic-card-vertical .clinic-card-img img {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+.clinic-card-vertical .clinic-card-body {
+    width: 100%;
+    margin-top: 6px;
+}
+/* 縦クリニックカード↑ */
+/* =========================クリニックカード↑========================= */
+
+/*-----------------------------施術タブ↓-----------------------------*/
+.treatment-tabs {
+    border: 1px solid #1F294E;
+    border-top: none;
+}
+.tab-img {
+    width: 100%;
+    overflow: hidden;
+}
+.tab-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.tab-tags {
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.tab-buttons {
+    display: flex;
+}
+.tab-button {
+    flex: 1;
+    padding: 10px 4px;
+    border: none;
+    border-right: 2px solid #fff;
+    background: #B5B8C3;
+    color: #fff;
+    font-size: 13px;
+}
+.tab-button:last-child {
+    border-right: none;
+}
+.tab-button.active {
+    background: #1F294E;
+}
+.tab-content {
+    display: none;
+    padding: 18px 20px;
+    background: #fff;
+}
+.tab-content.active {
+    display: block;
+}
+.tab-content.tab01 > h3 {
+    padding-bottom: 10px;
+}
+.tab-content.tab01 > p {
+    padding-top: 10px;
+}
+.tab-content.tab03 > h3 {
+    padding-bottom: 10px;
+}
+.tab-content.tab03 > p {
+    padding-top: 10px;
+}
+
+/*----------------------施術タブ↑----------------------*/
+
+/* =========================タグ共通↓========================= */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.tag {
+    display: inline-block;
+    padding: 4px 10px 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    white-space: nowrap;
+    background: transparent;
+}
+
+/* クリニック（フラグ）*/
+.tag-beginner {
+    background-color: #3AB75B;
+    color: #fff;
+}
+.tag-mens{
+    background-color: #5883F0;
+    color: #fff;
+}
+.tag-same-day {
+    background-color: #E8A323;
+    color: #fff;
+}
+.tag-free-counseling {
+    background-color: #FD87D5;
+    color: #fff;
+}
+.tag-reasonable {
+    background-color: #E34C4F;
+    color: #fff;
+}
+
+/* タクソノミー */
+/* 施術 */
+.tag-treatment {
+    background-color: #5F39D0;
+    color: #fff;
+}
+
+/* 悩み */
+.tag-trouble {
+    background-color: #53C217;
+    color: #fff;
+}
+
+/* エリア */
+.tag-area { 
+    background-color: #1F294E;
+    color: #fff;
+}
+
+/* WPでの分類分けクラス */
+.tag-flag,
+.tag-taxonomy {
+    display: inline-block;
+}
+/* =========================タグ共通↑========================= */
+
+/* =========================TOPページ↓========================= */
+main{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*メイン画像スライダー↓*/
+.main-slider {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.main-slider-track {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+.main-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.main-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+.main-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: transparent;
+    border: none;
+    color: #1F294E;
+    font-size: 40px;
+    cursor: pointer;
+}
+.slider-btn-prev {
+    left: 10px;
+}
+.slider-btn-next {
+    right: 10px;
+}
+/* メイン画像スライダー↑*/
+
+/* 施術比較↓ */
+.treatment-compare-lead {
+    display: inline-block;
+    background: #1F294E;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+}
+.treatment-compare-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    width: max-content;
+    min-width: 100%;
+}
+.treatment-compare-table th,
+.treatment-compare-table td {
+    padding: 16px 12px;
+    text-align: center;
+    white-space: nowrap;
+}
+.treatment-compare-table tbody th {
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+    padding-left: 14px;
+}
+.treatment-compare-table thead th {
+    border-bottom: 1px solid #ddd;
+    font-weight: normal;
+}
+.treatment-compare-table tbody tr:nth-child(even) {
+    background: #f5f5f5;
+}
+.treatment-compare-table th:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 2;
+}
+.treatment-compare-table a {
+    color: #5883F0;
+    text-decoration: none;
+}
+.treatment-compare-scroll {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+/* 施術比較表↑*/
+
+/*NEWS↓*/
+.news-list {
+    width: 100%;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.news-date {
+    width: 110px;
+    font-size: 13px;
+    color: #333;
+    position: relative;
+}
+
+/* 縦線 */
+.news-date::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 16px;
+    background: #999;
+}
+
+.news-content {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #111;
+}
+/* NEWS↑*/
+
+/* =========================TOPページ↑========================= */
