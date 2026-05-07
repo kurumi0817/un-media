@@ -95,7 +95,21 @@ $(function () {
         });
     });
 
-    // クリニックもっと見る
+// エリアリンクスクロール
+$('.area-tab-content a').on('click', function (e) {
+
+    e.preventDefault();
+
+    const target = $(this).attr('href');
+    const targetTop = $(target).offset().top - 80;
+
+    $('html, body').animate({
+    scrollTop: targetTop
+    }, 400);
+
+});
+
+// クリニックもっと見る
     const showCount = 2;
 
     $('.clinic-card-list-wrap').each(function () {
@@ -127,4 +141,5 @@ $(function () {
         }
         });
     });
+
 
