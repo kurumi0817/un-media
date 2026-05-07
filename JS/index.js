@@ -142,4 +142,49 @@ $('.area-tab-content a').on('click', function (e) {
         });
     });
 
+// columnカードもっと見る
+$(function () {
+    const columnShowCount = 4;
 
+    $('.column-card-list-wrap').each(function () {
+        const $wrap = $(this);
+        const $cards = $wrap.find('.column-card');
+        const $button = $wrap.find('.column-more-btn');
+
+        $cards.removeClass('is-show');
+        $cards.slice(0, columnShowCount).addClass('is-show');
+
+        if ($cards.length <= columnShowCount) {
+            $button.hide();
+        }
+
+        $button.on('click', function () {
+            const isOpen = $wrap.hasClass('is-open');
+
+            if (isOpen) {
+                $cards.removeClass('is-show');
+                $cards.slice(0, columnShowCount).addClass('is-show');
+                $wrap.removeClass('is-open');
+                $button.text('もっと見る');
+            } else {
+                $cards.addClass('is-show');
+                $wrap.addClass('is-open');
+                $button.text('閉じる');
+            }
+        });
+    });
+});
+
+// 症例ページタブ
+$(function () {
+    $('.case-accordion-btn').on('click', function () {
+        $(this).next('.case-accordion-content').toggleClass('active');
+    });
+});
+
+// FAQ
+$(function () {
+    $('.faq-question').on('click', function () {
+        $(this).closest('.faq-item').toggleClass('active');
+    });
+});

@@ -7,7 +7,6 @@ body {
     font-weight: 400;
 }
 section{
-    padding-top: 20px;
     padding-bottom: 10px;
 }
 .page-label{
@@ -30,8 +29,8 @@ h2{
     padding-top: 10px;
 }
 h3{
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 /* =========================header↓========================= */
@@ -380,10 +379,6 @@ footer p {
     width: 100%;
     aspect-ratio: 1 / 1;
 }
-
-.column-card-horizontal .column-card-body {
-    padding-top: 5px;
-}
 /*コラム横カード↑*/
 /* =========================コラムカード共通↑======================== */
 
@@ -419,15 +414,13 @@ footer p {
 .clinic-card-title {
     font-size: 16px;
     font-weight: bold;
-    margin: 6px 0;
     position: relative;
-    padding-left: 8px;
+    padding-left: 10px;
 }
 .clinic-card-title::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 2px;
     width: 4px;
     height: 16px;
     background: #1F294E;
@@ -795,7 +788,6 @@ main{
 }
 .area-tab-contents {
     padding: 18px 20px;
-    min-height: 70px;
 }
 .area-tab-content {
     display: none;
@@ -844,5 +836,288 @@ section .clinic-card-list{
     padding-left: 20px;
     padding-top: 20px;
 }
-/* エリアタブ↓*/
+
+.clinic-card-list-vertical {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+/* クリニックカード横並び　縦↓*/
+.clinic-card-list-vertical .clinic-card-vertical {
+    flex: 1 1 calc((100% - 10px) / 3);
+    min-width: 0;
+}
+
+.clinic-card-list-vertical .clinic-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.clinic-card-list-vertical .clinic-card-title {
+    font-size: 16px;
+}
+
+.clinic-card-list-vertical .clinic-card-btn {
+    font-size: 16px
+}
+.clinic-card-vertical .clinic-card-point {
+    display: none;
+}
+/* クリニックカード横並び　縦↑*/
 /* =========================クリニック一覧ページ↑========================= */
+
+/* =========================条件別おすすめページ↓========================= */
+/*--施術カード--*/
+.treatment-card {
+    width: 100%;
+}
+.treatment-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.treatment-card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+}
+.treatment-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.treatment-card .card-tags {
+    margin-top: 10px;
+}
+.treatment-card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.treatment-card-table th,
+.treatment-card-table td {
+    border: 1px solid #222;
+    padding: 10px 8px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+.treatment-card-table th {
+    width: 34%;
+    font-weight: bold;
+    text-align: left;
+    background: #fff;
+}
+.treatment-card-btn {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px 10px;
+    background: #1F294E;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.treatment-card-clinic-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11px;
+    color: #7D92FF;
+    text-decoration: none;
+}
+.treatment-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.treatment-card-list .treatment-card {
+    flex: 1 1 calc((100% - 24px) / 3);
+    min-width: 0;
+}
+/*コラムカード中身*/
+.column-card-list{
+    border: #1F294E 1px solid;
+    padding: 10px;
+}
+.column-more-btn{
+    text-align: center;
+}
+.column-card-list .column-card {
+    display: none;
+}
+.column-card-list .column-card.is-show {
+    display: block;
+}
+.column-more-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #1F294E;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+}
+/* =========================条件別おすすめページ↑========================= */
+
+/* =========================症例ページ↓========================= */
+.case-detail {
+    margin-top: 20px;
+}
+.case-ba {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.case-item {
+    flex: 1;
+}
+.case-label {
+    display: inline-block;
+    padding: 6px 18px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.case-label-before {
+    background: #bdbdbd;
+}
+
+.case-label-after {
+    background: #d63384;
+}
+
+.case-img {
+    aspect-ratio: 1 / 1;
+    background: #ddd;
+    overflow: hidden;
+}
+
+.case-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-img-after {
+    border: 3px solid #d63384;
+}
+.case-arrow {
+    color: #d63384;
+    font-size: 14px;
+    margin-top: 40px;
+    white-space: nowrap;
+}
+.case-treatment-title {
+    margin-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #d9d9d9;
+}
+.case-accordion {
+    margin-top: 12px;
+}
+.case-accordion-btn {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    background: #1F294E;
+    color: #fff;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.case-accordion-content {
+    display: none;
+    padding: 14px 18px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    border: 1px solid #1F294E;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.case-accordion-content.active {
+    display: block;
+}
+.case-clinic-link {
+    display: block;
+    margin-top: 24px;
+    text-align: right;
+    color: #7D92FF;
+    text-decoration: none;
+    font-size: 15px;
+}
+/*========================症例ページ↑========================= */
+
+/*========================FAQ↓========================= */
+.faq-item {
+    border: 1px solid #1F294E;
+    margin-bottom: 16px;
+}
+.faq-question {
+    width: 100%;
+    padding: 16px;
+    background: #1F294E;
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+.faq-title {
+    flex: 1;
+    font-size: 16px;
+}
+.faq-icon::before {
+    content: "+";
+    font-size: 20px;
+}
+.faq-item.active .faq-icon::before {
+    content: "▼";
+    font-size: 10px;
+}
+.faq-answer {
+    display: none;
+    padding: 20px;
+    color: #1F294E;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.faq-item.active .faq-answer {
+    display: block;
+}
+/*========================FAQ↑========================= */
+
+/*========================プライバシーポリシー↓========================= */
+.policy p{
+    font-size: 14px;
+    line-height: 1.5;
+}
+/*========================プライバシーポリシー↑========================= */
+
+/*========================カミングスーン&404↓========================= */
+.back-top{
+    background-color: #1F294E;
+    color: #fff;
+    height: 40px;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: 18px;
+}
+.coming-soon h2{
+    font-size: 40px;
+    color: #1F294E;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+/*========================カミングスーン&404↑========================= */
