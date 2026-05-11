@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美容施術診断</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background: linear-gradient(#fcedf4 0%);
+        min-height: 100vh;
+        padding: 20px;
+        }
+
+        .container {
+        max-width: 640px;
+        margin: 0 auto;
+        }
+
+        /* ヘッダー */
+        .header {
+        text-align: center;
+        padding: 40px 20px;
+        animation: fadeInDown 0.8s ease;
+        }
+
+        .header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(#1f294e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+        }
+
+        .header p {
+        color: #6b7280;
+        font-size: 0.95rem;
+        }
+
+        /* プログレスバー */
+        .progress-container {
+        background: #fff;
+        border-radius: 20px;
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .progress-text {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        color: #6b7280;
+        }
+
+        .progress-bar {
+        height: 8px;
+        background: #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+        }
+
+        .progress-fill {
+        height: 100%;
+        background: linear-gradient(#1f294e);
+        border-radius: 10px;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 質問カード */
+        .question-card {
+        background: #fff;
+        border-radius: 24px;
+        padding: 32px 24px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        animation: slideIn 0.5s ease;
+        display: none;
+        }
+
+        .question-card.active {
+        display: block;
+        }
+
+        .question-number {
+        display: inline-block;
+        background: linear-gradient(#1f294e);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+        }
+
+        .question-text {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        }
+
+        /* 選択肢 */
+        .options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        }
+
+        .option-btn {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #fafafa;
+        border: 2px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 18px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: left;
+        }
+
+        .option-btn:hover {
+        border-color: #1f294e;
+        transform: translateY(-2px);
+        }
+
+        .option-btn .icon {
+        font-size: 1.5rem;
+        }
+
+        .option-btn .text {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #374151;
+        }
+
+        /* 結果画面 */
+        .result-card {
+        display: none;
+        animation: fadeIn 0.8s ease;
+        }
+
+        .result-card.active {
+        display: block;
+        }
+
+        .result-header {
+        background: linear-gradient(#1f294e);
+        border-radius: 24px 24px 0 0;
+        padding: 40px 24px;
+        text-align: center;
+        color: #fff;
+        }
+
+        .result-header .label {
+        font-size: 0.85rem;
+        opacity: 0.9;
+        margin-bottom: 8px;
+        }
+
+        .result-header .treatment-name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        }
+
+        .result-header .match-rate {
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        }
+
+        .result-body {
+        background: #fff;
+        border-radius: 0 0 24px 24px;
+        padding: 32px 24px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .result-section {
+        margin-bottom: 28px;
+        }
+
+        .result-section:last-child {
+        margin-bottom: 0;
+        }
+
+        .result-section h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        }
+
+        .result-section h3::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 18px;
+        background: linear-gradient(#1f294e);
+        border-radius: 2px;
+        }
+
+        .result-section p {
+        color: #4b5563;
+        line-height: 1.8;
+        font-size: 0.95rem;
+        }
+
+        /* 特徴リスト */
+        .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        }
+
+        .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: #f9fafb;
+        padding: 16px;
+        border-radius: 12px;
+        }
+
+        .feature-item .icon {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        }
+
+        .feature-item .content strong {
+        display: block;
+        font-size: 0.9rem;
+        color: #374151;
+        margin-bottom: 4px;
+        }
+
+        .feature-item .content span {
+        font-size: 0.85rem;
+        color: #6b7280;
+        }
+
+        /* クリニックカード */
+        .clinic-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        }
+
+        .clinic-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f9fafb;
+        padding: 16px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        }
+
+        .clinic-card:hover {
+        background: #f3f4f6;
+        }
+
+        .clinic-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        }
+
+        .clinic-info .rank {
+        background: linear-gradient(#1f294e);
+        color: #fff;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        }
+
+        .clinic-info .name {
+        font-weight: 600;
+        color: #374151;
+        }
+
+        .clinic-info .tag {
+        font-size: 0.75rem;
+        color: #9ca3af;
+        }
+
+        .clinic-card .arrow {
+        color: #9ca3af;
+        }
+
+        /* CTAボタン */
+        .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+        }
+
+        .cta-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 18px 24px;
+        border-radius: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        }
+
+        .cta-btn.primary {
+        background: linear-gradient(#1f294e);
+        color: #fff;
+        }
+
+        .cta-btn.primary:hover {
+        transform: translateY(-2px);
+        }
+
+        .cta-btn.secondary {
+        background: #fff;
+        color: #6b7280;
+        border: 2px solid #e5e7eb;
+        }
+
+        .cta-btn.secondary:hover {
+        border-color: #d4a5ff;
+        color: #a78bfa;
+        }
+
+        /* 再診断ボタン */
+        .restart-btn {
+        display: block;
+        text-align: center;
+        margin-top: 24px;
+        color: #9ca3af;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        }
+
+        .restart-btn:hover {
+        color: #a78bfa;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        }
+
+        @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 480px) {
+        .header h1 {
+            font-size: 1.5rem;
+        }
+        .result-header .treatment-name {
+            font-size: 1.6rem;
+        }
+        }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="header">
+        <h1>美容施術診断</h1>
+        <p>30秒であなたに合った施術を見つけます</p>
+        </div>
+
+        <!-- プログレスバー -->
+        <div class="progress-container" id="progressContainer">
+        <div class="progress-text">
+            <span>診断の進捗</span>
+            <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+        </div>
+
+        <!-- 質問カード -->
+        <div class="question-card active" data-question="1">
+        <span class="question-number">Q1</span>
+        <h2 class="question-text">現在一番気になっている悩みは何ですか？</h2>
+        <div class="options">
+            <button class="option-btn" data-value="spots">
+            <span class="icon">🌟</span>
+            <span class="text">シミ・くすみ</span>
+            </button>
+            <button class="option-btn" data-value="pores">
+            <span class="icon">🔬</span>
+            <span class="text">毛穴・ニキビ</span>
+            </button>
+            <button class="option-btn" data-value="sagging">
+            <span class="icon">💎</span>
+            <span class="text">小顔・たるみ</span>
+            </button>
+            <button class="option-btn" data-value="hair">
+            <span class="icon">✨</span>
+            <span class="text">脱毛</span>
+            </button>
+        </div>
+        </div>
+
+        <div class="question-card" data-question="2">
+        <span class="question-number">Q2</span>
+        <h2 class="question-text">施術でどのような結果を求めますか？</h2>
+        <div class="options">
+            <button class="option-btn" data-value="quick">
+            <span class="icon">⚡</span>
+            <span class="text">すぐに効果を感じたい</span>
+            </button>
+            <button class="option-btn" data-value="budget">
+            <span class="icon">💰</span>
+            <span class="text">価格を抑えたい</span>
+            </button>
+            <button class="option-btn" data-value="minimal">
+            <span class="icon">🌿</span>
+            <span class="text">ダウンタイムを少なくしたい</span>
+            </button>
+        </div>
+        </div>
+
+        <div class="question-card" data-question="3">
+        <span class="question-number">Q3</span>
+        <h2 class="question-text">痛みやダウンタイムに抵抗はありますか？</h2>
+        <div class="options">
+            <button class="option-btn" data-value="avoid">
+            <span class="icon">😌</span>
+            <span class="text">できるだけ避けたい</span>
+            </button>
+            <button class="option-btn" data-value="okay">
+            <span class="icon">👍</span>
+            <span class="text">多少なら問題ない</span>
+            </button>
+            <button class="option-btn" data-value="fine">
+            <span class="icon">💪</span>
+            <span class="text">気にしない</span>
+            </button>
+        </div>
+        </div>
+
+        <div class="question-card" data-question="4">
+        <span class="question-number">Q4</span>
+        <h2 class="question-text">どれくらいの期間で改善したいですか？</h2>
+        <div class="options">
+            <button class="option-btn" data-value="asap">
+            <span class="icon">🚀</span>
+            <span class="text">すぐにでも改善したい</span>
+            </button>
+            <button class="option-btn" data-value="months">
+            <span class="icon">📅</span>
+            <span class="text">1〜3ヶ月以内</span>
+            </button>
+            <button class="option-btn" data-value="slow">
+            <span class="icon">🌱</span>
+            <span class="text">ゆっくり改善したい</span>
+            </button>
+        </div>
+        </div>
+
+        <!-- 結果画面 -->
+        <div class="result-card" id="resultCard">
+        <div class="result-header">
+            <p class="label">あなたにおすすめの施術は</p>
+            <h2 class="treatment-name" id="treatmentName">ピコレーザー</h2>
+            <span class="match-rate" id="matchRate">マッチ度 95%</span>
+        </div>
+        <div class="result-body">
+            <div class="result-section">
+            <h3>おすすめの理由</h3>
+            <p id="reasonText">あなたの回答をもとに診断しました。</p>
+            </div>
+
+            <div class="result-section">
+            <h3>施術の特徴</h3>
+            <div class="feature-list" id="featureList">
+                <!-- 動的に挿入 -->
+            </div>
+            </div>
+
+            <div class="result-section">
+            <h3>おすすめクリニック</h3>
+            <div class="clinic-list" id="clinicList">
+                <!-- 動的に挿入 -->
+            </div>
+            </div>
+
+            <div class="cta-buttons">
+            <a href="#" class="cta-btn primary" id="ctaPrimary">
+                <span>📩</span>
+                <span>無料カウンセリングを予約</span>
+            </a>
+            <a href="#" class="cta-btn secondary" id="ctaSecondary">
+                <span>📖</span>
+                <span>この施術について詳しく見る</span>
+            </a>
+            </div>
+
+            <p class="restart-btn" onclick="restartQuiz()">もう一度診断する</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // 回答を保存
+        const answers = {};
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+
+        // 施術データ
+        const treatments = {
+        pico_laser: {
+            name: 'ピコレーザー',
+            matchRate: 95,
+            reason: 'シミに対して高い効果があり、短期間での改善が期待できます。即効性を求めるあなたにぴったりの施術です。',
+            features: [
+            { icon: '⚡', title: '効果', desc: '1〜3回でシミが薄くなる高い即効性' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: '数日〜1週間程度の赤みやかさぶた' },
+            { icon: '👤', title: '向いている人', desc: '濃いシミを短期間で改善したい方' }
+            ],
+            // TODO: WP化時はクリニック投稿から取得する仮データ
+            clinics: [
+            { name: '湘南美容クリニック', tag: '全国展開・実績豊富' },
+            { name: '品川美容外科', tag: 'コスパ◎' },
+            { name: '東京美容外科', tag: '技術力に定評' }
+            ]
+        },
+        pico_toning: {
+            name: 'ピコトーニング',
+            matchRate: 92,
+            reason: 'ダウンタイムを抑えながらシミ・くすみを改善できる施術です。肌全体のトーンアップ効果も期待できます。',
+            features: [
+            { icon: '✨', title: '効果', desc: '回数を重ねて徐々に美白・トーンアップ' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし（当日からメイク可能）' },
+            { icon: '👤', title: '向いている人', desc: '日常生活に影響なく改善したい方' }
+            ],
+            // TODO: WP化時はクリニック投稿から取得する仮データ
+            clinics: [
+            { name: '湘南美容クリニック', tag: '全国展開・実績豊富' },
+            { name: '聖心美容クリニック', tag: '丁寧なカウンセリング' },
+            { name: 'TCB東京中央美容外科', tag: 'アクセス◎' }
+            ]
+        },
+        ipl: {
+            name: 'IPL（光治療）',
+            matchRate: 88,
+            reason: '肌への負担が少なく、ゆっくりと自然にシミ・くすみを改善できます。エイジングケアとしても人気です。',
+            features: [
+            { icon: '🌟', title: '効果', desc: 'シミ・くすみ・赤みなど複合的に改善' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし' },
+            { icon: '👤', title: '向いている人', desc: 'マイルドに継続ケアしたい方' }
+            ],
+            // TODO: WP化時はクリニック投稿から取得する仮データ
+            clinics: [
+            { name: '品川スキンクリニック', tag: 'フォトフェイシャル実績多数' },
+            { name: '湘南美容クリニック', tag: '全国展開' },
+            { name: 'ガーデンクリニック', tag: 'アフターケア充実' }
+            ]
+        },
+        dermapen: {
+            name: 'ダーマペン',
+            matchRate: 94,
+            reason: '毛穴・ニキビ跡に高い効果を発揮します。肌の再生力を活かした本格的な治療が可能です。',
+            features: [
+            { icon: '🔬', title: '効果', desc: '毛穴縮小・ニキビ跡・肌質改善' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: '2〜3日の赤み（メイクは翌日から可）' },
+            { icon: '👤', title: '向いている人', desc: '毛穴・凹凸をしっかり改善したい方' }
+            ],
+            clinics: [
+            { name: '湘南美容クリニック', tag: 'ダーマペン4導入' },
+            { name: '品川美容外科', tag: '症例実績豊富' },
+            { name: '共立美容外科', tag: '老舗の安心感' }
+            ]
+        },
+        peeling: {
+            name: 'ケミカルピーリング',
+            matchRate: 90,
+            reason: 'ダウンタイムを抑えながら毛穴・ニキビをケアできます。肌のターンオーバーを促進し、つるんとした肌へ導きます。',
+            features: [
+            { icon: '🧴', title: '効果', desc: '毛穴詰まり解消・ニキビ予防・肌質改善' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし（軽い乾燥程度）' },
+            { icon: '👤', title: '向いている人', desc: '手軽に毛穴ケアを始めたい方' }
+            ],
+            clinics: [
+            { name: '品川スキンクリニック', tag: 'ピーリングメニュー豊富' },
+            { name: '湘南美容クリニック', tag: '初回価格がお得' },
+            { name: 'TCB東京中央美容外科', tag: 'アクセス便利' }
+            ]
+        },
+        potenza: {
+            name: 'ポテンツァ',
+            matchRate: 93,
+            reason: 'ニキビ・毛穴・肌質改善をバランスよく叶える最新治療です。効果とダウンタイムのバランスに優れています。',
+            features: [
+            { icon: '⚡', title: '効果', desc: 'ニキビ・毛穴・ハリ改善を同時に' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: '1〜2日の赤み程度' },
+            { icon: '👤', title: '向いている人', desc: '複合的な肌悩みを1台で解決したい方' }
+            ],
+            clinics: [
+            { name: '湘南美容クリニック', tag: '最新機器導入' },
+            { name: '聖心美容クリニック', tag: '技術力◎' },
+            { name: 'TAクリニック', tag: 'ポテンツァ専門' }
+            ]
+        },
+        hifu: {
+            name: 'ハイフ（HIFU）',
+            matchRate: 96,
+            reason: 'メスを使わずに小顔・リフトアップが叶う人気施術です。即効性があり、施術直後から効果を実感できます。',
+            features: [
+            { icon: '💎', title: '効果', desc: 'たるみ改善・小顔・フェイスライン引き締め' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし（軽い赤み・むくみ程度）' },
+            { icon: '👤', title: '向いている人', desc: '切らずにリフトアップしたい方' }
+            ],
+            clinics: [
+            { name: '湘南美容クリニック', tag: 'ウルトラリフト人気' },
+            { name: '品川美容外科', tag: 'ソノクイーン導入' },
+            { name: '東京美容外科', tag: 'ウルセラ正規品' }
+            ]
+        },
+        thread_lift: {
+            name: '糸リフト',
+            matchRate: 91,
+            reason: 'しっかりとしたリフトアップ効果と持続性を求めるあなたに最適です。自然な仕上がりで若々しい印象へ。',
+            features: [
+            { icon: '🧵', title: '効果', desc: '強力なリフトアップ・持続期間1〜2年' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: '1週間程度（腫れ・内出血の可能性）' },
+            { icon: '👤', title: '向いている人', desc: '本格的にたるみを改善したい方' }
+            ],
+            clinics: [
+            { name: '東京美容外科', tag: '糸リフト症例多数' },
+            { name: '湘南美容クリニック', tag: 'VOVリフト人気' },
+            { name: '聖心美容クリニック', tag: '自然な仕上がり' }
+            ]
+        },
+        hair_budget: {
+            name: '医療脱毛（スタンダード）',
+            matchRate: 89,
+            reason: '価格を抑えながら医療レーザーの効果を得られるプランです。初めての方にもおすすめです。',
+            features: [
+            { icon: '✨', title: '効果', desc: '5〜8回で自己処理がほぼ不要に' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし（軽い赤み程度）' },
+            { icon: '👤', title: '向いている人', desc: 'コスパ重視で脱毛したい方' }
+            ],
+            clinics: [
+            { name: 'エミナルクリニック', tag: '全身脱毛が安い' },
+            { name: 'レジーナクリニック', tag: '追加料金なし' },
+            { name: 'リゼクリニック', tag: '保証充実' }
+            ]
+        },
+        hair_power: {
+            name: '医療脱毛（ハイパワー）',
+            matchRate: 94,
+            reason: '効果重視のあなたに最適な高出力プランです。少ない回数で確実な脱毛効果が期待できます。',
+            features: [
+            { icon: '⚡', title: '効果', desc: '3〜5回で高い脱毛効果を実感' },
+            { icon: '⏱️', title: 'ダウンタイム', desc: 'ほぼなし' },
+            { icon: '👤', title: '向いている人', desc: '短期間で確実に脱毛したい方' }
+            ],
+            clinics: [
+            { name: 'レジーナクリニック', tag: 'ジェントルマックスプロ' },
+            { name: 'アリシアクリニック', tag: '最新機器導入' },
+            { name: 'フレイアクリニック', tag: '蓄熱式で痛み軽減' }
+            ]
+        }
+        };
+
+        // 診断ロジック
+        function diagnose() {
+        const concern = answers[1]; // Q1: 悩み
+        const priority = answers[2]; // Q2: 優先事項
+        const pain = answers[3]; // Q3: 痛みへの抵抗
+        const timeline = answers[4]; // Q4: 期間
+
+        let result = '';
+
+        // シミ・くすみ
+        if (concern === 'spots') {
+            if (priority === 'quick' || timeline === 'asap') {
+            result = 'pico_laser';
+            } else if (priority === 'minimal' || pain === 'avoid') {
+            result = 'pico_toning';
+            } else {
+            result = 'ipl';
+            }
+        }
+        // 毛穴・ニキビ
+        else if (concern === 'pores') {
+            if (priority === 'quick' && pain !== 'avoid') {
+            result = 'dermapen';
+            } else if (priority === 'minimal' || pain === 'avoid') {
+            result = 'peeling';
+            } else {
+            result = 'potenza';
+            }
+        }
+        // 小顔・たるみ
+        else if (concern === 'sagging') {
+            if (priority === 'quick' || timeline === 'asap' || pain === 'avoid') {
+            result = 'hifu';
+            } else {
+            result = 'thread_lift';
+            }
+        }
+        // 脱毛
+        else if (concern === 'hair') {
+            if (priority === 'budget') {
+            result = 'hair_budget';
+            } else {
+            result = 'hair_power';
+            }
+        }
+
+        return treatments[result];
+        }
+
+        // 結果を表示
+        function showResult() {
+        const result = diagnose();
+        
+        document.getElementById('progressContainer').style.display = 'none';
+        document.getElementById('treatmentName').textContent = result.name;
+        document.getElementById('matchRate').textContent = `マッチ度 ${result.matchRate}%`;
+        document.getElementById('reasonText').textContent = result.reason;
+
+        // 特徴リスト
+        const featureList = document.getElementById('featureList');
+        featureList.innerHTML = result.features.map(f => `
+            <div class="feature-item">
+            <span class="icon">${f.icon}</span>
+            <div class="content">
+                <strong>${f.title}</strong>
+                <span>${f.desc}</span>
+            </div>
+            </div>
+        `).join('');
+
+        // クリニックリスト
+        const clinicList = document.getElementById('clinicList');
+        clinicList.innerHTML = result.clinics.map((c, i) => `
+            <div class="clinic-card">
+            <div class="clinic-info">
+                <span class="rank">${i + 1}</span>
+                <div>
+                <p class="name">${c.name}</p>
+                <p class="tag">${c.tag}</p>
+                </div>
+            </div>
+            <span class="arrow">→</span>
+            </div>
+        `).join('');
+
+        document.getElementById('resultCard').classList.add('active');
+        }
+
+        // 進捗更新
+        function updateProgress() {
+        const percent = ((currentQuestion - 1) / totalQuestions) * 100;
+        document.getElementById('progressFill').style.width = `${percent}%`;
+        document.getElementById('progressPercent').textContent = `${Math.round(percent)}%`;
+        }
+
+        // 次の質問へ
+        function nextQuestion(value) {
+        answers[currentQuestion] = value;
+        
+        // 現在の質問を非表示
+        document.querySelector(`.question-card[data-question="${currentQuestion}"]`).classList.remove('active');
+        
+        currentQuestion++;
+        updateProgress();
+
+        if (currentQuestion > totalQuestions) {
+            // 結果表示
+            setTimeout(showResult, 300);
+        } else {
+            // 次の質問を表示
+            setTimeout(() => {
+            document.querySelector(`.question-card[data-question="${currentQuestion}"]`).classList.add('active');
+            }, 200);
+        }
+        }
+
+        // 再診断
+        function restartQuiz() {
+        currentQuestion = 1;
+        Object.keys(answers).forEach(key => delete answers[key]);
+        
+        document.getElementById('resultCard').classList.remove('active');
+        document.getElementById('progressContainer').style.display = 'block';
+        
+        document.querySelectorAll('.question-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        document.querySelector('.question-card[data-question="1"]').classList.add('active');
+        
+        updateProgress();
+        }
+
+        // イベントリスナー設定
+        document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            nextQuestion(this.dataset.value);
+        });
+        });
+
+        // 初期化
+        updateProgress();
+    </script>
+</body>
+</html>
