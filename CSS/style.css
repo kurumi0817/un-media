@@ -1102,6 +1102,9 @@ section .clinic-card-list{
     font-size: 14px;
     line-height: 1.5;
 }
+.policy section{
+    padding-top: 10px;
+}
 /*========================プライバシーポリシー↑========================= */
 
 /*========================カミングスーン&404↓========================= */
@@ -1121,3 +1124,111 @@ section .clinic-card-list{
     font-weight: bold;
 }
 /*========================カミングスーン&404↑========================= */
+
+/*========================会社概要↓========================= */
+.company-info {
+    margin-top: 30px;
+}
+
+.company-info-list {
+    margin: 0;
+}
+
+.company-info-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    column-gap: 24px;
+    padding: 14px 0;
+    position: relative;
+}
+
+.company-info-row::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 110px;
+    width: 1px;
+    height: 100%;
+    background: #1F294E;
+}
+
+.company-info-row dt {
+    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    padding-right: 18px;
+}
+
+.company-info-row dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+/*========================会社概要↑========================= */
+
+/*-----------------------------お問い合わせフォーム↓-----------------------------*/
+.contact-form-section {
+    margin-top: 30px;
+}
+.contact-form-row {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 26px;
+}
+.contact-form-row-single {
+    width: calc((100% - 28px) / 2);
+}
+.contact-form-group {
+    flex: 1;
+}
+.contact-form-group label,
+.contact-form-textarea label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+}
+.required {
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: #ff2b2b;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: none;
+    background: #ddd;
+    padding: 14px;
+    font-size: 14px;
+    color: #111;
+}
+.contact-form textarea {
+    height: 180px;
+    resize: none;
+}
+.contact-form input::placeholder {
+    color: #999;
+}
+.contact-form-textarea {
+    margin-top: 10px;
+}
+.contact-submit-btn {
+    display: block;
+    width: 220px;
+    margin: 40px auto 0;
+    padding: 18px 10px;
+    border: none;
+    background: #1F294E;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+/*-----------------------------お問い合わせフォーム↑-----------------------------*/
