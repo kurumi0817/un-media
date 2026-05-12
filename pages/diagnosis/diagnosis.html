@@ -15,14 +15,31 @@
 
         body {
         font-family: 'Noto Sans JP', sans-serif;
-        background: linear-gradient(#fcedf4 0%);
+        background-image: linear-gradient(0deg, #fcedf4 50%, #ffffff);
         min-height: 100vh;
         padding: 20px;
+        overflow-x: hidden;
+        }
+
+        /* 背景アニメーション */
+        #background_css3 {
+        z-index: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
         }
 
         .container {
         max-width: 640px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
         }
 
         /* ヘッダー */
@@ -176,12 +193,13 @@
         margin-bottom: 12px;
         }
 
-        .result-header .match-rate {
+        /* ↓ マッチ度→提案ラベルに変更 */
+        .result-header .result-label {
         display: inline-block;
         background: rgba(255,255,255,0.2);
         padding: 8px 20px;
         border-radius: 20px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         }
 
         .result-body {
@@ -511,7 +529,8 @@
         <div class="result-header">
             <p class="label">あなたにおすすめの施術は</p>
             <h2 class="treatment-name" id="treatmentName">ピコレーザー</h2>
-            <span class="match-rate" id="matchRate">マッチ度 95%</span>
+            <!-- ↓ マッチ度→提案ラベルに変更 -->
+            <span class="result-label">あなたの回答にもとづくご提案</span>
         </div>
         <div class="result-body">
             <div class="result-section">
@@ -555,11 +574,10 @@
         let currentQuestion = 1;
         const totalQuestions = 4;
 
-        // 施術データ
+        // 施術データ（matchRate削除）
         const treatments = {
         pico_laser: {
             name: 'ピコレーザー',
-            matchRate: 95,
             reason: 'シミに対して高い効果があり、短期間での改善が期待できます。即効性を求めるあなたにぴったりの施術です。',
             features: [
             { icon: '⚡', title: '効果', desc: '1〜3回でシミが薄くなる高い即効性' },
@@ -575,7 +593,6 @@
         },
         pico_toning: {
             name: 'ピコトーニング',
-            matchRate: 92,
             reason: 'ダウンタイムを抑えながらシミ・くすみを改善できる施術です。肌全体のトーンアップ効果も期待できます。',
             features: [
             { icon: '✨', title: '効果', desc: '回数を重ねて徐々に美白・トーンアップ' },
@@ -591,7 +608,6 @@
         },
         ipl: {
             name: 'IPL（光治療）',
-            matchRate: 88,
             reason: '肌への負担が少なく、ゆっくりと自然にシミ・くすみを改善できます。エイジングケアとしても人気です。',
             features: [
             { icon: '🌟', title: '効果', desc: 'シミ・くすみ・赤みなど複合的に改善' },
@@ -607,7 +623,6 @@
         },
         dermapen: {
             name: 'ダーマペン',
-            matchRate: 94,
             reason: '毛穴・ニキビ跡に高い効果を発揮します。肌の再生力を活かした本格的な治療が可能です。',
             features: [
             { icon: '🔬', title: '効果', desc: '毛穴縮小・ニキビ跡・肌質改善' },
@@ -622,7 +637,6 @@
         },
         peeling: {
             name: 'ケミカルピーリング',
-            matchRate: 90,
             reason: 'ダウンタイムを抑えながら毛穴・ニキビをケアできます。肌のターンオーバーを促進し、つるんとした肌へ導きます。',
             features: [
             { icon: '🧴', title: '効果', desc: '毛穴詰まり解消・ニキビ予防・肌質改善' },
@@ -637,7 +651,6 @@
         },
         potenza: {
             name: 'ポテンツァ',
-            matchRate: 93,
             reason: 'ニキビ・毛穴・肌質改善をバランスよく叶える最新治療です。効果とダウンタイムのバランスに優れています。',
             features: [
             { icon: '⚡', title: '効果', desc: 'ニキビ・毛穴・ハリ改善を同時に' },
@@ -652,7 +665,6 @@
         },
         hifu: {
             name: 'ハイフ（HIFU）',
-            matchRate: 96,
             reason: 'メスを使わずに小顔・リフトアップが叶う人気施術です。即効性があり、施術直後から効果を実感できます。',
             features: [
             { icon: '💎', title: '効果', desc: 'たるみ改善・小顔・フェイスライン引き締め' },
@@ -667,7 +679,6 @@
         },
         thread_lift: {
             name: '糸リフト',
-            matchRate: 91,
             reason: 'しっかりとしたリフトアップ効果と持続性を求めるあなたに最適です。自然な仕上がりで若々しい印象へ。',
             features: [
             { icon: '🧵', title: '効果', desc: '強力なリフトアップ・持続期間1〜2年' },
@@ -682,7 +693,6 @@
         },
         hair_budget: {
             name: '医療脱毛（スタンダード）',
-            matchRate: 89,
             reason: '価格を抑えながら医療レーザーの効果を得られるプランです。初めての方にもおすすめです。',
             features: [
             { icon: '✨', title: '効果', desc: '5〜8回で自己処理がほぼ不要に' },
@@ -697,7 +707,6 @@
         },
         hair_power: {
             name: '医療脱毛（ハイパワー）',
-            matchRate: 94,
             reason: '効果重視のあなたに最適な高出力プランです。少ない回数で確実な脱毛効果が期待できます。',
             features: [
             { icon: '⚡', title: '効果', desc: '3〜5回で高い脱毛効果を実感' },
@@ -714,14 +723,13 @@
 
         // 診断ロジック
         function diagnose() {
-        const concern = answers[1]; // Q1: 悩み
-        const priority = answers[2]; // Q2: 優先事項
-        const pain = answers[3]; // Q3: 痛みへの抵抗
-        const timeline = answers[4]; // Q4: 期間
+        const concern = answers[1];
+        const priority = answers[2];
+        const pain = answers[3];
+        const timeline = answers[4];
 
         let result = '';
 
-        // シミ・くすみ
         if (concern === 'spots') {
             if (priority === 'quick' || timeline === 'asap') {
             result = 'pico_laser';
@@ -730,9 +738,7 @@
             } else {
             result = 'ipl';
             }
-        }
-        // 毛穴・ニキビ
-        else if (concern === 'pores') {
+        } else if (concern === 'pores') {
             if (priority === 'quick' && pain !== 'avoid') {
             result = 'dermapen';
             } else if (priority === 'minimal' || pain === 'avoid') {
@@ -740,17 +746,13 @@
             } else {
             result = 'potenza';
             }
-        }
-        // 小顔・たるみ
-        else if (concern === 'sagging') {
+        } else if (concern === 'sagging') {
             if (priority === 'quick' || timeline === 'asap' || pain === 'avoid') {
             result = 'hifu';
             } else {
             result = 'thread_lift';
             }
-        }
-        // 脱毛
-        else if (concern === 'hair') {
+        } else if (concern === 'hair') {
             if (priority === 'budget') {
             result = 'hair_budget';
             } else {
@@ -761,16 +763,14 @@
         return treatments[result];
         }
 
-        // 結果を表示
+        // 結果を表示（matchRate削除）
         function showResult() {
         const result = diagnose();
-        
+
         document.getElementById('progressContainer').style.display = 'none';
         document.getElementById('treatmentName').textContent = result.name;
-        document.getElementById('matchRate').textContent = `マッチ度 ${result.matchRate}%`;
         document.getElementById('reasonText').textContent = result.reason;
 
-        // 特徴リスト
         const featureList = document.getElementById('featureList');
         featureList.innerHTML = result.features.map(f => `
             <div class="feature-item">
@@ -782,7 +782,6 @@
             </div>
         `).join('');
 
-        // クリニックリスト
         const clinicList = document.getElementById('clinicList');
         clinicList.innerHTML = result.clinics.map((c, i) => `
             <div class="clinic-card">
@@ -810,18 +809,13 @@
         // 次の質問へ
         function nextQuestion(value) {
         answers[currentQuestion] = value;
-        
-        // 現在の質問を非表示
         document.querySelector(`.question-card[data-question="${currentQuestion}"]`).classList.remove('active');
-        
         currentQuestion++;
         updateProgress();
 
         if (currentQuestion > totalQuestions) {
-            // 結果表示
             setTimeout(showResult, 300);
         } else {
-            // 次の質問を表示
             setTimeout(() => {
             document.querySelector(`.question-card[data-question="${currentQuestion}"]`).classList.add('active');
             }, 200);
@@ -832,15 +826,12 @@
         function restartQuiz() {
         currentQuestion = 1;
         Object.keys(answers).forEach(key => delete answers[key]);
-        
         document.getElementById('resultCard').classList.remove('active');
         document.getElementById('progressContainer').style.display = 'block';
-        
         document.querySelectorAll('.question-card').forEach(card => {
             card.classList.remove('active');
         });
         document.querySelector('.question-card[data-question="1"]').classList.add('active');
-        
         updateProgress();
         }
 
@@ -853,6 +844,90 @@
 
         // 初期化
         updateProgress();
+    </script>
+
+    <!-- 背景アニメーション -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.min.js"></script>
+    <script>
+        var background = {}
+
+        background.initializr = function() {
+            var $this = this;
+
+            $this.id = "background_css3";
+            $this.style = {
+                bubbles_color: "#e8a0c0", // ピンク系カラー
+                stroke_width: 0,
+                stroke_color: "black"
+            };
+            $this.bubbles_number = 15;
+            $this.speed = [3000, 8000];
+            $this.shape = false;
+
+            if ($("#" + $this.id).length > 0) {
+                $("#" + $this.id).remove();
+            }
+
+            $this.object = $("<div id='" + $this.id + "'></div>").appendTo("body");
+            $this.ww = $(window).width();
+            $this.wh = $(window).height();
+            $this.object.width($this.ww);
+            $this.object.height($this.wh);
+
+            $("body").prepend("<style>.shape_background { transform-origin: center; width: 80px; height: 80px; background: " + $this.style.bubbles_color + "; position: absolute; opacity: 0.25; }</style>");
+
+            for (var i = 0; i < $this.bubbles_number; i++) {
+                $this.generate_bubbles();
+            }
+        }
+
+        background.generate_bubbles = function() {
+            var $this = this;
+            var base = $("<div class='shape_background'></div>");
+            var shape_type = $this.shape ? $this.shape : Math.floor($this.rn(1, 3));
+
+            var bolla;
+            if (shape_type == 1) {
+                bolla = base.css({ borderRadius: "50%" });
+            } else if (shape_type == 2) {
+                bolla = base.css({
+                    width: 0, height: 0,
+                    "border-style": "solid",
+                    "border-width": "0 40px 69.3px 40px",
+                    "border-color": "transparent transparent " + $this.style.bubbles_color + " transparent",
+                    background: "transparent"
+                });
+            } else {
+                bolla = base;
+            }
+
+            var rn_size = $this.rn(0.8, 1.2, true);
+            bolla.css({
+                transform: "scale(" + rn_size + ") rotate(" + $this.rn(-360, 360) + "deg)",
+                top: $this.wh + 100,
+                left: $this.rn(-60, $this.ww + 60)
+            });
+            bolla.appendTo($this.object);
+            bolla.transit({
+                top: $this.rn($this.wh / 6, $this.wh / 6 - 60),
+                transform: "scale(" + rn_size + ") rotate(" + $this.rn(-360, 360) + "deg)",
+                opacity: 0
+            }, $this.rn($this.speed[0], $this.speed[1]), function() {
+                $(this).remove();
+                $this.generate_bubbles();
+            });
+        }
+
+        background.rn = function(from, to, arr) {
+            if (arr) {
+                return Math.random() * (to - from + 1) + from;
+            } else {
+                return Math.floor(Math.random() * (to - from + 1) + from);
+            }
+        }
+
+        background.initializr();
     </script>
 </body>
 </html>

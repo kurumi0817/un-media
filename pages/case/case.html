@@ -75,112 +75,57 @@
         <main>
             <article>
 
-                <!--症例↓-->
-                <section class="case-detail">
+            <!--症例↓-->
+            <section class="case-detail">
 
-                    <div class="case-ba">
-
-                        <div class="case-item">
-                            <div class="case-label case-label-before">
-                                Before
-                            </div>
-
-                            <div class="case-img">
-                                <img src="../../imges/dummy/dummy.png" alt="">
-                            </div>
-                        </div>
-
-                        <div class="case-arrow">▶▶▶</div>
-
-                        <div class="case-item">
-                            <div class="case-label case-label-after">
-                                After
-                            </div>
-
-                            <div class="case-img case-img-after">
-                                <img src="../../imges/dummy/dummy.png" alt="">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="case-treatment-title">
-                        <h3>ピコレーザーとは</h3>
-                    </div>
-
-                    <div class="case-accordion">
-                        <button type="button" class="case-accordion-btn">
-                            ダウンタイム
-                            <span>▼</span>
-                        </button>
-                        <div class="case-accordion-content">
-                            <p>赤みや軽いひりつきが出る場合がありますが、数日で落ち着くことが多いです。</p>
-                        </div>
-
-                        <button type="button" class="case-accordion-btn">
-                            強み・気になるポイント
-                            <span>▼</span>
-                        </button>
-                        <div class="case-accordion-content">
-                            <h3>強み</h3>
-                            <p>シミやくすみなど、肌悩みに合わせて提案しやすい施術です。</p>
-                            <h3>気になるポイント</h3>
-                            <p>複数回の施術が必要になる場合があります。</p>
-                        </div>
-
-                        <button type="button" class="case-accordion-btn">
-                            この施術を担当したクリニック
-                            <span>▼</span>
-                        </button>
-                        <div class="case-accordion-content">
-                            <div class="clinic-card">
-                            <div class="clinic-card-inner">
-
-                                <div class="clinic-card-img">
-                                    <img src="../../imges/dummy/dummy.png" alt="">
-                                </div>
-
-                                <div class="clinic-card-body">
-
-                                    <div class="card-tags">
-                                        <span class="tag tag-flag tag-beginner">#初心者向け</span>
-                                        <span class="tag tag-flag tag-mens">#男性おすすめ</span>
-                                        <span class="tag tag-taxonomy tag-area tag-tokyo">東京</span>
-                                    </div>
-
-                                    <h3 class="clinic-card-title">
-                                        ビューティスクリニック
-                                    </h3>
-
-                                    <div class="clinic-card-point">
-                                        <p class="clinic-card-point-label">
-                                            おすすめポイント
-                                        </p>
-
-                                        <p class="clinic-card-point-text">
-                                            駅から徒歩1分でアクセスしやすい
-                                        </p>
-                                    </div>
-
-                                    <a href="#" class="clinic-card-btn">
-                                        クリニックのHPを見る
-                                    </a>
-
-                                    <p class="clinic-card-note">
-                                        ※詳しくはHPをご確認ください
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
+                <!-- ビフォーアフター -->
+                <div class="case-ba">
+                    <div class="case-item">
+                        <div class="case-label case-label-before">Before</div>
+                        <div class="case-img">
+                            <img src="../../imges/dummy/dummy.png" alt="">
                         </div>
                     </div>
 
-                    <a href="../clinic/clinic.html#pico-laser" class="case-clinic-link">
-                        クリニック一覧はこちら
-                    </a>
-                </section>
-                <!--症例↑-->
+                    <div class="case-arrow">▶</div>
+
+                    <div class="case-item">
+                        <div class="case-label case-label-after">After</div>
+                        <div class="case-img case-img-after">
+                            <img src="../../imges/dummy/dummy.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 施術名タグ -->
+                <div class="card-tags case-meta">
+                    <span class="tag tag-taxonomy tag-treatment">#ピコレーザー</span>
+                </div>
+
+                <!-- 強み・気になるポイント -->
+                <div class="case-points">
+                    <div class="case-point case-point-good">
+                        <p class="case-point-label">強み</p>
+                        <p class="case-point-text">シミやくすみなど、肌悩みに合わせて提案しやすい施術です。</p>
+                    </div>
+                    <div class="case-point case-point-bad">
+                        <p class="case-point-label">気になるポイント</p>
+                        <p class="case-point-text">複数回の施術が必要になる場合があります。</p>
+                    </div>
+                </div>
+                
+                <!-- 一言説明 -->
+                <p class="case-summary">
+                    頬骨周りのそばかす・シミが3回の施術でトーンアップ。
+                    肌全体の明るさも改善しました。
+                </p>
+
+                <!-- CTA -->
+                <a href="#" class="clinic-card-btn">このクリニックの詳細を見る</a>
+                <a href="../clinic/clinic.html" class="case-clinic-link">クリニック一覧はこちら</a>
+
+            </section>
+            <!--症例↑-->
                 
                 <!--関連記事↓-->
                 <section>
@@ -197,7 +142,7 @@
                                             <div class="column-card-meta">
                                                 <time class="column-card-date">202X.XX.X</time>
                                             <div class="card-tags">
-                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-flag tag-mens">#男性におすすめ</span>
                                                 <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
                                             </div>
                                         </div>
@@ -218,7 +163,7 @@
                                             <div class="column-card-meta">
                                                 <time class="column-card-date">202X.XX.X</time>
                                             <div class="card-tags">
-                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-flag tag-mens">#男性におすすめ</span>
                                                 <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
                                             </div>
                                         </div>
@@ -239,7 +184,7 @@
                                             <div class="column-card-meta">
                                                 <time class="column-card-date">202X.XX.X</time>
                                             <div class="card-tags">
-                                                <span class="tag tag-flag tag-mens">#男性</span>
+                                                <span class="tag tag-flag tag-mens">#男性におすすめ</span>
                                                 <span class="tag tag-taxonomy tag-treatment tag-medical-hair-removal">#医療脱毛</span>
                                             </div>
                                         </div>

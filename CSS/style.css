@@ -7,7 +7,7 @@ body {
     font-weight: 400;
 }
 section{
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 .page-label{
     margin-top: 5px;
@@ -60,12 +60,28 @@ header .logo img{
     transform: translateX(-50%);
     margin-top: 0;
 }
-
 .logo img {
     height: 55px;
 }
-
 /*トップロゴ↑*/
+
+/*診断バナー↓*/
+.banner-area {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.banner-link {
+    display: block;
+}
+.banner-image {
+    display: block;
+    width: 100%;
+    max-width: 610px;
+    height: auto;
+    margin: 0 auto;
+}
+/*診断バナー↑*/
 
 /*SNSロゴ↓*/
 .sns {
@@ -268,6 +284,7 @@ footer {
     padding: 40px 20px 20px;
     margin-left: -10px;
     margin-right: -10px;
+    margin-top: 50px;
 }
 
 /* ロゴ */
@@ -448,7 +465,7 @@ footer p {
     border-radius: 999px;
     margin-top: 10px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
 }
 .clinic-card-note {
     font-size: 10px;
@@ -521,6 +538,8 @@ footer p {
     background: #B5B8C3;
     color: #fff;
     font-size: 13px;
+    font-weight: bold;
+    text-align: center;
 }
 .tab-button:last-child {
     border-right: none;
@@ -635,7 +654,7 @@ main{
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    transition: opacity 3s ease;
 }
 .main-slide.active {
     opacity: 1;
@@ -665,6 +684,42 @@ main{
     right: 10px;
 }
 /* メイン画像スライダー↑*/
+
+/* お悩みから記事を探す↓ */
+.trouble-card-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+.trouble-card {
+    position: relative;
+    flex: 0 0 90px;
+    height: 190px;
+    display: block;
+    background: #ddd;
+    text-decoration: none;
+}
+.trouble-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.trouble-card-label {
+    position: absolute;
+    z-index: 1;
+    background: #1F294E;
+    color: #fff;
+    font-size: 14px;
+    padding: 6px 16px;
+}
+.trouble-card-label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    border-top: 6px solid #1F294E;
+}
 
 /* 施術比較↓ */
 .treatment-compare-lead {
@@ -779,6 +834,7 @@ main{
     color: #fff;
     font-size: 14px;
     cursor: pointer;
+    text-align: center;
 }
 .area-tab-button:last-child {
     border-right: none;
@@ -972,7 +1028,6 @@ section .clinic-card-list{
     align-items: flex-start;
     gap: 10px;
 }
-
 .case-item {
     flex: 1;
 }
@@ -982,70 +1037,80 @@ section .clinic-card-list{
     color: #fff;
     font-size: 14px;
 }
-
 .case-label-before {
     background: #bdbdbd;
 }
-
 .case-label-after {
     background: #d63384;
 }
-
 .case-img {
     aspect-ratio: 1 / 1;
     background: #ddd;
     overflow: hidden;
 }
-
 .case-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-
 .case-img-after {
     border: 3px solid #d63384;
 }
 .case-arrow {
     color: #d63384;
     font-size: 14px;
-    margin-top: 40px;
+    margin-top: 110px;
     white-space: nowrap;
 }
-.case-treatment-title {
-    margin-top: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background: #d9d9d9;
-}
-.case-accordion {
-    margin-top: 12px;
-}
-.case-accordion-btn {
-    width: 100%;
-    padding: 14px 18px;
-    margin-bottom: 8px;
-    background: #1F294E;
-    color: #fff;
-    border: none;
-    text-align: left;
-    font-size: 14px;
+.case-points {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 16px;
 }
-.case-accordion-content {
-    display: none;
-    padding: 14px 18px;
-    margin-top: -8px;
-    margin-bottom: 8px;
-    border: 1px solid #1F294E;
-    font-size: 13px;
+.case-point {
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 15px;
     line-height: 1.7;
 }
-.case-accordion-content.active {
-    display: block;
+.case-point-good {
+    background: #f0faf3;
+    border-left: 4px solid #3AB75B;
+}
+.case-point-bad {
+    background: #fff5f5;
+    border-left: 4px solid #e3954c;
+}
+.case-point-label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: px;
+}
+.case-point-good .case-point-label {
+    color: #3AB75B;
+}
+.case-point-bad .case-point-label {
+    color: #e3954c;
+}
+.case-point-text {
+    color: #333;
+}
+.case-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+.case-summary {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 16px;
 }
 .case-clinic-link {
     display: block;
