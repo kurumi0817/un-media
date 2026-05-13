@@ -6,7 +6,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
-
 section{
     padding-bottom: 30px;
 }
@@ -822,6 +821,573 @@ main{
 
 /* =========================TOPページ↑========================= */
 
+/* =========================コラムページ専用CSS↓========================= */
+
+/* アイキャッチ */
+.eyecatch {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
+}
+.eyecatch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* article全体 */
+.colum {
+    padding-top: 14px;
+    padding-bottom: 40px;
+}
+/* タグ */
+.colum-tags {
+    margin-bottom: 10px;
+}
+/* 記事タイトル */
+.colum-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1F294E;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    padding: 0;
+}
+/* 本文用下線 */
+.colum-underline {
+    display: inline;
+    background: linear-gradient(transparent 70%, #FFE08A 70%);
+    font-weight: 600;
+}
+/* メタ情報 */
+.colum-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+.colum-date {
+    font-size: 12px;
+    color: #999;
+}
+.colum-author {
+    font-size: 12px;
+    color: #999;
+}
+/* 導入文 */
+.colum-intro {
+    background: #fcedf4;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #1F294E;
+}
+.colum-intro-name {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+/* 目次 */
+.colum-toc {
+    background: #f5f5f5;
+    border-left: 4px solid #1F294E;
+    border-radius: 0 12px 12px 0;
+    padding: 16px;
+    margin-bottom: 32px;
+}
+.colum-toc-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1F294E;
+    margin-bottom: 12px;
+}
+.colum-toc-list {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+.colum-toc-list li {
+    font-size: 15px;
+}
+.colum-toc-list a {
+    color: #1F294E;
+    text-decoration: none;
+}
+.colum-toc-list ul {
+    padding-left: 16px;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: disc;
+}
+.colum-toc-list ul li {
+    font-size: 14px;
+    color: #666;
+}
+/* 本文エリア */
+.colum-body {
+    margin-bottom: 40px;
+}
+/* H2（共通のh2を上書き） */
+.colum-body h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: #1F294E;
+    padding: 12px 16px;
+    margin: 32px -10px 20px;
+    line-height: 1.5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* H3（共通のh3を上書き） */
+.colum-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F294E;
+    border-bottom: 2px solid #1F294E;
+    padding-bottom: 6px;
+    padding-top: 0;
+    margin: 24px 0 14px;
+    line-height: 1.5;
+}
+/* 本文段落（共通のpを上書き） */
+.colum-body p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    color: #333;
+}
+/* エッセイ引用 */
+.colum-essay-quote {
+    font-style: italic;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px 0;
+    margin: 4px 0 16px;
+    border-left: none !important;
+}
+/* 本文内画像正方形*/
+.colum-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+/* 本文内画像横長*/
+.colum-img-wide img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.colum-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* ポイントボックス */
+.colum-point-box {
+    background: #fcedf4;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+}
+.colum-point-box-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1F294E;
+    margin-bottom: 10px;
+}
+.colum-point-box ul {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+}
+.colum-point-box ul li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+/* 施術カード */
+.colum-treatment-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+.colum-treatment-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.colum-treatment-card:last-child {
+    margin-bottom: 0;
+}
+.colum-treatment-card-header {
+    background: #1F294E;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.colum-treatment-card-body {
+    padding: 4px 16px;
+}
+.colum-treatment-card-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+.colum-treatment-card-row:last-child {
+    border-bottom: none;
+}
+.colum-treatment-card-label {
+    color: #888;
+    font-size: 14px;
+}
+.colum-treatment-card-value {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+/* 比較表 */
+.colum-compare-wrap {
+    overflow-x: auto;
+    margin: 20px -10px;
+    -webkit-overflow-scrolling: touch;
+}
+.colum-compare-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+.colum-compare-table th {
+    background: #1F294E;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.colum-compare-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #333;
+}
+.colum-compare-table tr:nth-child(even) td {
+    background: #f5f5f5;
+}
+.colum-compare-table td:first-child {
+    font-weight: 700;
+    color: #1F294E;
+    text-align: left;
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+}
+.colum-compare-table tr:nth-child(even) td:first-child {
+    background: #f5f5f5;
+}
+/* FAQアコーディオン */
+.colum-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+.colum-faq-item {
+    border: 1px solid #1F294E;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.colum-faq-question {
+    width: 100%;
+    padding: 14px 16px;
+    background: #1F294E;
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+.colum-faq-title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.colum-faq-prefix {
+    font-weight: 700;
+    margin-right: 4px;
+}
+.colum-faq-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+.colum-faq-icon::before {
+    content: "+";
+    font-size: 18px;
+    color: #fff;
+}
+.colum-faq-item.active .colum-faq-icon::before {
+    content: "−";
+}
+.colum-faq-answer {
+    display: none;
+    padding: 14px 16px;
+    background: #fafafa;
+}
+.colum-faq-answer p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #444;
+    margin: 0;
+}
+.colum-faq-item.active .colum-faq-answer {
+    display: block;
+}
+/* clinicをもっと見るリンク */
+.column-faq-link{
+    display: block;
+    text-align: right;
+    color: #7D92FF;
+    text-decoration: none;
+    font-size: 14px;
+}
+/* まとめボックス */
+.colum-summary-box {
+    background: #1F294E;
+    color: #444;
+    border-radius: 12px;
+    padding: 20px 16px;
+    margin: 24px 0;
+}
+.colum-summary-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+    padding-top: 0;
+    color: #fff;
+}
+.colum-summary-box ul {
+    padding-top: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+}
+.colum-summary-box ul li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+}
+/* 診断CTA */
+.colum-cta {
+    background: #fcedf4;
+    border-radius: 16px;
+    padding: 24px 16px;
+    text-align: center;
+    margin: 24px 0;
+}
+.colum-cta p {
+    font-size: 13px;
+    color: #1F294E;
+    margin-bottom: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+.colum-cta-btn-primary {
+    display: block;
+    background: #1F294E;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.colum-cta-btn-secondary {
+    display: block;
+    background: #fff;
+    color: #1F294E;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #1F294E;
+}
+/* 注釈 */
+.colum-notes {
+    margin: 24px 0;
+    padding: 14px 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+.colum-notes p {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 4px;
+}
+.colum-notes p:last-child {
+    margin-bottom: 0;
+}
+/* 監修者 */
+.colum-supervisor {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 24px 0;
+}
+.colum-supervisor-label {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 10px;
+}
+.colum-supervisor-inner {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.colum-supervisor-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #eee;
+}
+.colum-supervisor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.colum-supervisor-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F294E;
+    margin-bottom: 2px;
+}
+.colum-supervisor-role {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+}
+.colum-supervisor-bio {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+/* この記事を書いた人 */
+.colum-author-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 24px 0;
+}
+.colum-author-label {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 10px;
+}
+.colum-author-inner {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.colum-author-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #eee;
+}
+.colum-author-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.colum-author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F294E;
+    margin-bottom: 2px;
+}
+.colum-author-role {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+}
+.colum-author-bio {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+/* 関連記事 */
+.colum-related {
+    margin: 32px 0;
+    padding-bottom: 0;
+}
+.colum-related-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1F294E;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1F294E;
+    background: none;
+    padding-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.colum-summary-box>h3{
+        margin: 0 !important;
+}
+/* =========================コラムページ専用CSS↑========================= */
+
 
 /* =========================クリニック一覧ページ↓========================= */
 /* エリアタブ↓*/
@@ -1134,6 +1700,8 @@ section .clinic-card-list{
 .faq-item {
     border: 1px solid #1F294E;
     margin-bottom: 16px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 .faq-question {
     width: 100%;
